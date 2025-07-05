@@ -1,0 +1,46 @@
+.hero-image-0{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -10;
+}
+
+.hero-image-0 img {
+    height: 100vh;
+    width: 100vw;
+}
+.test-wrapper{
+     height: 100vh;
+    width: 100vw;
+}
+
+
+.test h2{
+    position: absolute;
+    top : 25%;
+    
+    color: darkorange;
+    font-size: clamp(20px, 4vw, 32px);
+}
+.test h1{
+    font-size: clamp(32px, 8vw, 70px);
+    position: absolute;
+    top : 38%;
+    max-width: 700px;
+    margin: 0;
+    line-height: 1.1;
+    color: #F1D1C1;
+    /* width: 100%; */
+}
+.test p{
+    position: absolute;
+    top : 62%;
+    font-size: clamp(14px, 2.5vw, 18px);
+    /* width: 100%; */
+    max-width: 500px;
+    line-height: 1.4;
+    color: #F1D1C1;
+}
