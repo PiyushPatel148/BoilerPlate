@@ -15,6 +15,35 @@ export default async function decorate(block) {
   block.textContent = '';
   const footer = document.createElement('div');
   while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
+  // Adding the class names for the CSS
+  const footerLists = footer.querySelectorAll('ul');
+  footerLists.forEach((ul) => {
+    ul.classList.add('footer-list');
+
+    // Only direct <li> children of this <ul>
+    ul.querySelectorAll(':scope > li').forEach((li) => {
+      li.classList.add('footer-heading');
+
+      // If this <li> contains a nested <ol>, decorate it
+      li.querySelectorAll('ol').forEach((ol) => {
+        ol.classList.add('footer-sublist');
+
+        // Also add class to its <li> children
+        ol.querySelectorAll('li').forEach((subLi) => {
+          subLi.classList.add('footer-subitem');
+        });
+      });
+
+      // Also check for nested <ul> and decorate them too
+      li.querySelectorAll('ul').forEach((nestedUl) => {
+        nestedUl.classList.add('footer-sublist');
+
+        nestedUl.querySelectorAll('li').forEach((subLi) => {
+          subLi.classList.add('footer-subitem');
+        });
+      });
+    });
+  });
 
   block.append(footer);
 }

@@ -1,5 +1,5 @@
 footer {
-  background-color: var(--light-color);
+  background-color: black;
   font-size: var(--body-font-size-xs);
 }
 
@@ -11,6 +11,8 @@ footer .footer > div {
 
 footer .footer p {
   margin: 0;
+  padding-left : 38px;
+  color : white;
 }
 
 @media (width >= 900px) {
@@ -18,3 +20,29 @@ footer .footer p {
     padding: 40px 32px 24px;
   }
 }
+
+.footer-heading,.footer-subitem{
+  list-style: none;
+}
+
+.footer-heading{
+  color : var(--heading-color);
+}
+
+.footer-list{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin : 30px;
+}
+
+.footer-sublist{
+   display: flex;
+  flex-direction: column;
+  padding : 0;
+  margin : 0;
+  color : white;
+}
+
+
+
