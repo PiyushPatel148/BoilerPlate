@@ -1,9 +1,15 @@
+.nav-wrapper,#nav{
+  height :100px;
+  border-bottom: 0.5px solid #F1D1C1;
+}
+
 /* header and nav layout */
 header .nav-wrapper {
-  background-color: var(--background-color);
   width: 100%;
-  z-index: 2;
+  z-index: 100;
   position: fixed;
+  background-color: black;
+  color : white;
 }
 
 header nav {
@@ -151,14 +157,16 @@ header nav .nav-brand img {
 
 /* sections */
 header nav .nav-sections {
-  grid-area: sections;
-  flex: 1 1 auto;
+  /* grid-area: sections; */
+
+  /* flex: 1 1 auto; */
   display: none;
   visibility: hidden;
 }
 
 header nav[aria-expanded='true'] .nav-sections {
-  display: block;
+  display: flex;
+  justify-content: flex-end;
   visibility: visible;
   align-self: start;
 }
@@ -243,6 +251,7 @@ header nav .nav-sections ul > li > ul > li {
     padding: 16px;
     background-color: var(--light-color);
     white-space: initial;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul::before {
@@ -264,5 +273,9 @@ header nav .nav-sections ul > li > ul > li {
 
 /* tools */
 header nav .nav-tools {
-  grid-area: tools;
+  display:none;
+}
+
+.default-content-wrapper > p{
+   font-size: clamp(1.5rem, 4vw, 2.5rem);
 }
