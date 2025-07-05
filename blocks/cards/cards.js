@@ -6,9 +6,11 @@ export default function decorate(block) {
   [...block.children].forEach((row) => {
     const li = document.createElement('li');
     while (row.firstElementChild) li.append(row.firstElementChild);
-    [...li.children].forEach((div) => {
+    [...li.children].forEach((div, index) => {
       if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
-      else div.className = 'cards-card-body';
+      else if (index === 2) {
+        div.className = 'background-trapezium';
+      } else { div.className = 'cards-card-body'; }
     });
     ul.append(li);
   });

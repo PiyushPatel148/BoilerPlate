@@ -1,27 +1,115 @@
+.cards {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}
+
 .cards > ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  grid-gap: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  max-width: 1200px;
 }
 
+/* Card Item */
 .cards > ul > li {
+  flex: 0 0 280px; 
+  min-height: 300px; 
+  box-sizing: border-box;
+  padding: 12px 16px;
   border: 1px solid #dadada;
-  background-color: var(--background-color);
+  border-radius: 20px;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 0;
+  transition: all 0.3s ease;
 }
 
-.cards .cards-card-body {
-  margin: 16px;
-}
-
-.cards .cards-card-image {
-  line-height: 0;
-}
-
-.cards > ul > li img {
+/* Bottom-to-top fill using ::after */
+.cards > ul > li::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  height: 40%;
+  background-color: orange;
+  clip-path: polygon(0 40%, 100% 20%, 100% 100%, 0% 100%);
+  z-index: -1;
+  transition: all 0.4s ease;
 }
+
+.cards > ul > li:hover::after {
+  height: 100%;
+  clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+/* === Top Icon === */
+.cards .cards-card-image {
+  width: 64px;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 0;
+}
+
+/* === Card Body === */
+.cards .cards-card-body {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cards .cards-card-body > h4 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 8px 0 6px;
+  transition: color 0.3s ease;
+}
+
+.cards .cards-card-body > p {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #666;
+  margin-bottom: 12px;
+  transition: color 0.3s ease;
+}
+
+/* Text turns white on hover */
+.cards > ul > li:hover h4,
+.cards > ul > li:hover p {
+  color: white;
+}
+
+/* === Pizza Image === */
+.cards .cards-card-body .pizza-image {
+  width: 72px;
+  object-fit: contain;
+  position: relative;
+  z-index: 0;
+}
+
+/* === Responsive Layout === */
+@media (width <= 900px) {
+  .cards > ul > li {
+    flex: 0 0 45%;
+  }
+}
+
+@media (width <= 500px) {
+  .cards > ul > li {
+    flex: 1 1 100%;
+  }
+}
+
