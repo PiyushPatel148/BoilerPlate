@@ -21,7 +21,7 @@ export default async function decorate(block) {
 
     // Append clones of the elements into the new wrapper
     // and remove the originals from the row
-    for (let i = 1; i <= 3; i + 1) {
+    for (let i = 1; i <= 3; i += 1) {
       const col = cols[i];
       foodDescWrapper.appendChild(col); // move the original node
     }
