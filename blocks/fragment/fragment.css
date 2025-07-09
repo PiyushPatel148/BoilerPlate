@@ -1,1 +1,14 @@
-/* stylelint-disable no-empty-source */
+
+@media (width <= 768px) {
+  .fragment {
+    padding: var(--space-m);
+    font-size: var(--font-size-m);
+  }
+}
+
+@media (width <= 480px) {
+  .fragment {
+    padding: var(--space-s);
+    font-size: var(--font-size-s);
+  }
+}
