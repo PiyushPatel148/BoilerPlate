@@ -9,9 +9,22 @@ export default async function decorate(block) {
   // Function to update food items based on filter
   function filterFoodItems(filter) {
     const foodItems = document.querySelectorAll('.food-card');
+
     foodItems.forEach((foodItem) => {
       const type = foodItem.dataset.type?.toLowerCase() || '';
-      if (filter === 'all' || type === filter) {
+      const category = foodItem.dataset.category?.toLowerCase() || '';
+
+      // Normalize filter
+      const Filter = filter.toLowerCase();
+
+      // Show all
+      if (Filter === 'all') {
+        foodItem.style.display = '';
+        return;
+      }
+
+      // Match either type or category
+      if (type === Filter || category === Filter) {
         foodItem.style.display = '';
       } else {
         foodItem.style.display = 'none';
