@@ -41,7 +41,9 @@ export default async function decorate(block) {
         const cartItems = getCartItems();
         if (!cartItems.length) {
           // Optionally, show an error or shake the button
+
           // alert('Your cart is empty!');
+
           return;
         }
         // Clear cart in localStorage
