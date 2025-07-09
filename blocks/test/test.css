@@ -13,23 +13,27 @@
     width: 100vw;
 }
 
+.hero-content > div{
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    gap : var(--space-xxs);
+    position : absolute;
+    top : 25%;
+}
+
 .test-wrapper{
      height: 100vh;
     width: 100vw;
 }
 
-
-.test h2{
-    position: absolute;
-    top : 25%;
-    color: darkorange;
+ .test h2{
+    color: var(--heading-color);
     font-size: clamp(20px, 4vw, 32px);
 }
 
-.test h1{
+.test  h1{
     font-size: clamp(32px, 8vw, 70px);
-    position: absolute;
-    top : 38%;
     max-width: 700px;
     margin: 0;
     line-height: 1.1;
@@ -38,14 +42,28 @@
     /* width: 100%; */
 }
 
-.test p{
-    position: absolute;
-    top : 62%;
+.test  p{
     font-size: clamp(14px, 2.5vw, 18px);
-
-    /* width: 100%; */
     
+    /* width: 100%; */
+
     max-width: 500px;
     line-height: 1.4;
     color: #F1D1C1;
 }
+
+@media (width <= 768px) {
+  .test {
+    padding: var(--space-m);
+    font-size: var(--font-size-m);
+  }
+}
+
+@media (width <= 480px) {
+  .test {
+    padding: var(--space-s);
+    font-size: var(--font-size-s);
+  }
+}
+
+
