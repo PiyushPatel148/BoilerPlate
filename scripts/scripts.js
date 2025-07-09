@@ -19,12 +19,20 @@ import {
  */
 function buildHeroBlock(main) {
   const h1 = main.querySelector('h1');
-  const picture = main.querySelector('picture');
-  // eslint-disable-next-line no-bitwise
-  if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
-    const section = document.createElement('div');
-    section.append(buildBlock('hero', { elems: [picture, h1] }));
-    main.prepend(section);
+  if (!h1) return;
+
+  const section = h1.closest('div.section');
+  if (!section) return;
+
+  const pictures = [...section.querySelectorAll('picture')].filter(
+    // eslint-disable-next-line no-bitwise
+    (pic) => pic.compareDocumentPosition(h1) & Node.DOCUMENT_POSITION_FOLLOWING,
+  );
+
+  if (pictures.length > 0) {
+    const wrapper = document.createElement('div');
+    wrapper.append(buildBlock('hero', { elems: [...pictures, h1] }));
+    main.prepend(wrapper);
   }
 }
 
@@ -34,7 +42,9 @@ function buildHeroBlock(main) {
 async function loadFonts() {
   await loadCSS(`${window.hlx.codeBasePath}/styles/fonts.css`);
   try {
-    if (!window.location.hostname.includes('localhost')) sessionStorage.setItem('fonts-loaded', 'true');
+    if (!window.location.hostname.includes('localhost')) {
+      sessionStorage.setItem('fonts-loaded', 'true');
+    }
   } catch (e) {
     // do nothing
   }
@@ -82,7 +92,7 @@ async function loadEager(doc) {
   }
 
   try {
-    /* if desktop (proxy for fast connection) or fonts already loaded, load fonts.css */
+    // if desktop (proxy for fast connection) or fonts already loaded, load fonts.css
     if (window.innerWidth >= 900 || sessionStorage.getItem('fonts-loaded')) {
       loadFonts();
     }
