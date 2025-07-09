@@ -11,33 +11,104 @@
  */
 
 :root {
-  /* colors */
-  --background-color: white;
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+  /* COLORS */
+  --color-white: #fff;
+  --color-black: #000;
+  --color-background: #fff;
+  --color-surface: #fff6eb;
+  --color-primary: #ffa500; /* orange */
+  --color-primary-dark: #e69500;
+  --color-secondary: #E7690D;
+  --color-accent: #ff9800;
+  --color-accent-dark: #b85c00;
 
-  /* fonts */
+  /* --color-link: #3b63fb;
+  --color-link-hover: #1d3ecf; */
+  --color-heading: #9a3412;
+
+  /* --color-success: #44bb44; */
+
+  /* --color-danger: #ff3333; */
+  --color-warning: #ffb300;
+
+  /* --color-info: #2196f3; */
+
+  /* --color-gray-100: #f5f5f5;
+  --color-gray-200: #eee;
+  --color-gray-300: #dadada;
+  --color-gray-400: #ccc;
+  --color-gray-500: #888;
+  --color-gray-600: #666;
+  --color-gray-700: #444;
+  --color-gray-800: #222; */
+  --color-border: #dadada;
+  --color-shadow: rgb(0 0 0 / 10%);
+  --color-shadow-strong: rgb(0 0 0 / 30%);
+  --color-overlay: rgb(0 0 0 / 60%);
+  --color-highlight: #fff7ed;
+  --color-highlight-2: #ffedd5;
+  --color-card-hover: #f6ddb0;
+
+  /* FONTS */
+  --font-family-body: roboto, roboto-fallback, sans-serif;
+  --font-family-heading: roboto-condensed, roboto-condensed-fallback, sans-serif;
+
+  /* FONT SIZES */
+  --font-size-xxs: 0.5rem; 
+  --font-size-xs: 0.875rem; /* 14px */
+  --font-size-s: 1rem;      /* 16px */
+  --font-size-m: 1.125rem;  /* 18px */
+  --font-size-l: 1.5rem;    /* 24px */
+  --font-size-xl: 2rem;     /* 32px */
+  --font-size-xxl: 2.75rem; /* 44px */
+  --font-size-xxxl: 3.5rem; /* 56px */
+
+  /* SPACING */
+  --space-xxs: 4px;
+  --space-xs: 8px;
+  --space-s: 12px;
+  --space-m: 16px;
+  --space-l: 24px;
+  --space-xl: 32px;
+  --space-xxl: 40px;
+  --space-xxxl: 64px;
+
+  /* BORDER RADIUS */
+  --radius-xs: 2px;
+  --radius-s: 4px;
+  --radius-m: 8px;
+  --radius-l: 15px;
+  --radius-xl: 20px;
+  --radius-xxl: 32px;
+  --radius-round: 50%;
+
+  /* SHADOWS */
+  --shadow-m: 0 4px 15px var(--color-shadow);
+  --shadow-l: 0 10px 25px var(--color-shadow);
+  --shadow-xl: 0 20px 40px var(--color-shadow-strong);
+
+  /* NAV HEIGHT */
+  --nav-height: 64px;
+
+  /* LEGACY/PROJECT-SPECIFIC (for migration) */
+  --background-color: white;
+  --light-color: black;
+  --dark-color: indigo;
+  --text-color: black;
+  --link-color: orange;
+  --link-hover-color: darkorange;
+  --heading-color: darkorange;
   --body-font-family: roboto, roboto-fallback, sans-serif;
   --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
-
-  /* body sizes */
   --body-font-size-m: 22px;
   --body-font-size-s: 19px;
   --body-font-size-xs: 17px;
-
-  /* heading sizes */
   --heading-font-size-xxl: 55px;
   --heading-font-size-xl: 44px;
   --heading-font-size-l: 34px;
   --heading-font-size-m: 27px;
   --heading-font-size-s: 24px;
   --heading-font-size-xs: 22px;
-
-  /* nav height */
-  --nav-height: 64px;
 }
 
 /* fallback fonts */
@@ -173,7 +244,7 @@ button {
   max-width: 100%;
   margin: 12px 0;
   border: 2px solid transparent;
-  border-radius: 2.4em;
+  border-radius: 1em;
   padding: 0.5em 1.2em;
   font-family: var(--body-font-family);
   font-style: normal;
@@ -255,3 +326,4 @@ main .section.highlight {
   margin: 0;
   padding: 40px 0;
 }
+
