@@ -1,5 +1,17 @@
+// Show toast notification
+function showCartNotification() {
+  const toast = document.createElement('div');
+  toast.className = 'cart-toast';
+  toast.textContent = 'Item added to cart';
+
+  document.body.appendChild(toast);
+
+  setTimeout(() => {
+    toast.remove();
+  }, 2000);
+}
 export default async function decorate(block) {
-  const classList = ['food-image', 'food-type', 'menu-food-name', 'price-name'];
+  const classList = ['food-image', 'food-type', 'menu-food-name', 'price-name', 'food-category'];
 
   [...block.children].forEach((row) => {
     row.classList.add('food-card');
@@ -14,6 +26,7 @@ export default async function decorate(block) {
       row.setAttribute('data-name', cols[2].textContent.trim());
       row.setAttribute('data-price', cols[3].textContent.trim());
       row.setAttribute('data-image', cols[0].querySelector('img')?.src || '');
+      row.setAttribute('data-category', cols[4].textContent.trim());
     }
 
     const foodDescWrapper = document.createElement('div');
@@ -21,7 +34,7 @@ export default async function decorate(block) {
 
     // Append clones of the elements into the new wrapper
     // and remove the originals from the row
-    for (let i = 1; i <= 3; i + 1) {
+    for (let i = 1; i <= 3; i += 1) {
       const col = cols[i];
       foodDescWrapper.appendChild(col); // move the original node
     }
@@ -86,7 +99,7 @@ export default async function decorate(block) {
       });
     }
     saveCartItems(cartItems);
-    // showCartNotification();
+    showCartNotification();
   }
 
   const foodItems = document.querySelectorAll('.food-card');

@@ -1,18 +1,21 @@
 footer {
-  background-color: black;
-  font-size: var(--body-font-size-xs);
+  background-color: var(--color-black);
+  font-size: var(--font-size-xs);
 }
 
 footer .footer > div {
   margin: auto;
   max-width: 1200px;
-  padding: 40px 24px 24px;
+  padding: var(--space-xxl);
 }
 
 footer .footer p {
+  font-size: 1.0rem;
   margin: 0;
-  padding-left : 38px;
-  color : white;
+  color : var(--color-white);
+  display: flex;
+  justify-content: center;
+  margin-top : 20px;
 }
 
 @media (width >= 900px) {
@@ -25,15 +28,13 @@ footer .footer p {
   list-style: none;
 }
 
-.footer-heading{
-  color : var(--heading-color);
-}
-
 .footer-list{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  margin : 30px;
+  justify-content: space-around;
+  gap: var(--space-xxl);
+  margin : 0;
+  padding : 0;
 }
 
 .footer-sublist{
@@ -41,8 +42,16 @@ footer .footer p {
   flex-direction: column;
   padding : 0;
   margin : 0;
-  color : white;
+  color : var(--color-white);
+  font-size: 1.0rem;
 }
+
+footer .footer-list > li.footer-heading {
+  color: var(  --color-primary);/* orange */
+  font-size: var(--font-size-m);
+  list-style: none;
+}
+
 
 
 
