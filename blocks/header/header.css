@@ -58,6 +58,13 @@ header nav p {
 
 header nav a:any-link {
   color: currentcolor;
+  padding : var(--space-xs);
+  text-decoration: none;
+}
+
+header nav a:any-link:hover{
+  background-color: var(--link-hover-color);
+  border-radius : var(--radius-s);
 }
 
 /* hamburger */
@@ -94,7 +101,7 @@ header nav .nav-hamburger-icon::before,
 header nav .nav-hamburger-icon::after {
   content: '';
   position: absolute;
-  background: currentcolor;
+  background: var(--light-color);
 }
 
 header nav[aria-expanded='false'] .nav-hamburger-icon,
@@ -102,7 +109,7 @@ header nav[aria-expanded='false'] .nav-hamburger-icon::before,
 header nav[aria-expanded='false'] .nav-hamburger-icon::after {
   height: 2px;
   border-radius: 2px;
-  background: currentcolor;
+  background: var(--light-color);
 }
 
 header nav[aria-expanded='false'] .nav-hamburger-icon::before {
@@ -145,7 +152,7 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
 header .nav-brand {
   grid-area: brand;
   flex-basis: 128px;
-  font-size: var(--heading-font-size-s);
+  font-size: var(--font-size-l);
   font-weight: 700;
   line-height: 1;
 }
@@ -169,6 +176,9 @@ header nav[aria-expanded='true'] .nav-sections {
   justify-content: flex-end;
   visibility: visible;
   align-self: start;
+  background-color: var(--light-color);
+  color : var(--background-color);
+  padding: var(--space-l);
 }
 
 header nav .nav-sections ul {
@@ -276,6 +286,6 @@ header nav .nav-tools {
   display:none;
 }
 
-.default-content-wrapper > p{
+.header > .default-content-wrapper > p{
    font-size: clamp(1.5rem, 4vw, 2.5rem);
 }
