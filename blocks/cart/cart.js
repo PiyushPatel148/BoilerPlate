@@ -20,7 +20,10 @@ export default async function decorate(block) {
     cartDiv.innerHTML = '';
 
     if (cartItems.length === 0) {
-      cartDiv.textContent = 'Your cart is empty.';
+      const emptyDiv = document.createElement('div');
+      emptyDiv.className = 'empty-cart-container';
+      emptyDiv.textContent = 'Your cart is empty.';
+      cartDiv.appendChild(emptyDiv);
       return;
     }
 
@@ -30,7 +33,8 @@ export default async function decorate(block) {
 
       // Image
       const img = document.createElement('img');
-      img.src = item.image || 'http://localhost:3000/media_19c7df6bf8549e24c7cf93e09675aae2139561fa6.png?width=750&format=png&optimize=medium';
+      //   img.src = item.image || 'http://localhost:3000/media_19c7df6bf8549e24c7cf93e09675aae2139561fa6.png?width=750&format=png&optimize=medium';
+      img.src = item.image;
       img.alt = item.name;
       itemDiv.appendChild(img);
 

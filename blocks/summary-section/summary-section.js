@@ -38,6 +38,14 @@ export default async function decorate(block) {
       row.classList.add('place-order-button');
       row.style.cursor = 'pointer';
       row.onclick = () => {
+        const cartItems = getCartItems();
+        if (!cartItems.length) {
+          // Optionally, show an error or shake the button
+
+          // alert('Your cart is empty!');
+
+          return;
+        }
         // Clear cart in localStorage
         localStorage.setItem('cartItems', JSON.stringify([]));
         window.dispatchEvent(new Event('cartUpdated'));

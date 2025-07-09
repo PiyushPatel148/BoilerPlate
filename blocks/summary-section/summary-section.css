@@ -1,11 +1,18 @@
-
+.section.cart-container.summary-section-container {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding: 2rem 0;
+  gap: var(--space-xl);
+}
 
 .summary-section {
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgb(0 0 0 / 10%);
+    background: var(--color-white);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-l);
     box-sizing: border-box;
-    padding: 30px;
+    padding: var(--space-xl);
 
     /* max-width: fit-content; */
 
@@ -18,29 +25,29 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 15px;
-    color: #6b7280;
+    color: var(--color-gray-500);
 }
 
 .summary-heading{
-    font-size: 1.5rem;
+    font-size: var(--font-size-l);
     font-weight: bold;
-    color: #9a3412;
-    margin-bottom: 25px;
+    color: var(--color-heading);
+    margin-bottom: var(--space-l);
 }
 
 .place-order-button {
     /* width: 100%; */
-    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
-    color: white;
+    background-color:var(--color-primary);
+    color: var(--color-white);
     font-weight: bold;
-    padding: 12px 6px;
+    padding: var(--space-m) var(--space-s);
     border: none;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgb(249 115 22 / 30%);
+    border-radius: var(--radius-l);
+    box-shadow: var(--shadow-m);
     cursor: pointer;
     transition: all 0.3s ease;
-    font-size: 1rem;
-    margin-top: 25px;
+    font-size: var(--font-size-s);
+    margin-top: var(--space-l);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,4 +56,22 @@
 .place-order-button p,.place-order-button>div {
     margin: 0;
     padding:0;
+}
+
+@media (width <= 768px) {
+  .summary-section,
+  .summary-row,
+  .summary-heading,
+  .place-order-button {
+    font-size: var(--font-size-s);
+  }
+}
+
+@media (width <= 480px) {
+  .summary-section,
+  .summary-row,
+  .summary-heading,
+  .place-order-button {
+    font-size: var(--font-size-xs);
+  }
 }

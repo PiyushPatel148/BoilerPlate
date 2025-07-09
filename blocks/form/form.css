@@ -1,3 +1,38 @@
+.form-wrapper{
+   display: flex; 
+   align-items: center;
+  justify-content: center;
+
+  /* background: linear-gradient(135deg, #ff8c00, #ffa500, #ffd580); */
+
+  /* background: linear-gradient(135deg, #fff0e6, #fdfcfb); */
+
+  /* background: linear-gradient(135deg, #c6f6d5, #fceabb); */
+   z-index : 2;
+}
+
+.form {
+  border : 1px solid var(--light-color);
+
+  /* display: flex; */
+
+  /* align-items: center; */
+
+  /* justify-content: center; */
+
+  /* max-width: fit-content;   */
+  padding : var(--space-l) var(--space-xxl);
+  margin : var(--space-xxxl) var(--space-xl);
+  border-radius : var(--radius-l);
+  width : 30vw;
+  background : rgb(255 255 255 / 90%);
+
+  /* backdrop-filter: blur(100px);
+  box-shadow: var(--shadow-m);
+  -webkit-backdrop-filter: blur(120px); */
+  z-index : 3;
+}
+
 .form .field-wrapper {
   display: grid;
   grid-auto-flow: row;
@@ -14,7 +49,7 @@
 
 .form form > .field-wrapper + .field-wrapper,
 .form form fieldset .field-wrapper + .field-wrapper {
-  margin-top: 24px;
+  margin-top: var(--space-l);
 }
 
 .form form > .selection-wrapper + .selection-wrapper,
@@ -25,7 +60,7 @@
 @media (width >= 600px) {
   .form fieldset {
     grid-template-columns: repeat(2, auto);
-    gap: 0.25em 24px;
+    gap: 0.25em var(--space-l);
   }
 
   .form form > .selection-wrapper + .selection-wrapper,
@@ -44,7 +79,7 @@
 .form label,
 .form fieldset > legend {
   margin-bottom: 0.25em;
-  font-size: var(--body-font-size-s);
+  font-size: var(--font-size-s);
   font-weight: 700;
 }
 
@@ -61,11 +96,11 @@
   width: 100%;
   margin: 0;
   padding: 0.5em;
-  border-radius: 4px;
+  border-radius: var(--radius-s);
   border: 1px solid var(--dark-color);
-  background-color: var(--background-color);
+  background-color: var(--color-background);
   color: var(--text-color);
-  font-size: var(--body-font-size-s);
+  font-size: var(--font-size-s);
   transition: border-color 0.2s;
 }
 
@@ -82,7 +117,7 @@
 .form input:focus,
 .form select:focus,
 .form textarea:focus {
-  outline: 2px solid var(--link-color);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
@@ -93,19 +128,17 @@
 @media (width >= 600px) {
   .form input,
   .form select,
-  .form textarea {
+  .form textarea,
+  .form .button  {
     max-width: 50vw;
-  }
-
-  .form .button {
-    max-width: max-content;
   }
 }
 
 @media (width >= 900px) {
   .form input,
   .form select,
-  .form textarea {
+  .form textarea,
+  .form .button {
     max-width: 33vw;
   }
 }
@@ -118,7 +151,7 @@
 
 .form label[data-required]::after {
   content: '*';
-  color: firebrick;
+  color: var(--color-danger);
   margin-inline-start: 1ch;
 }
 
@@ -152,16 +185,16 @@
   top: 2px;
   left: 2px;
   border-radius: 50%;
-  background-color: var(--background-color);
+  background-color: var(--color-background);
   transition: transform 0.2s;
 }
 
 .form .toggle-wrapper input:checked + .slider {
-  background-color: var(--link-color);
+  background-color: var(--color-primary);
 }
 
 .form .toggle-wrapper input:focus + .slider {
-  outline: 2px solid var(--link-color);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
