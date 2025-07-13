@@ -65,7 +65,6 @@ main > .section > div.test-wrapper{
   margin-right: 32px;
   border-radius: 16px;
   backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
   box-shadow: 0 8px 24px rgb(0 0 0 / 20%);
   position: absolute;
   top: 30%;
