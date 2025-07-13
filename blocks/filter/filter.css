@@ -39,7 +39,7 @@
 
 @media (width <= 768px) {
   .filter-buttons {
-    flex-direction: column;
+    flex-direction: row;
     align-items: stretch;
     padding: var(--space-m);
     gap: var(--space-xs);
