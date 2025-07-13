@@ -71,11 +71,18 @@ function toggleAllNavSections(sections, expanded = false) {
 function toggleMenu(nav, navSections, forceExpanded = null) {
   const expanded = forceExpanded !== null ? !forceExpanded : nav.getAttribute('aria-expanded') === 'true';
   const button = nav.querySelector('.nav-hamburger button');
+
   document.body.style.overflowY = (expanded || isDesktop.matches) ? '' : 'hidden';
   nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
   toggleAllNavSections(navSections, expanded || isDesktop.matches ? 'false' : 'true');
   button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
-  // enable nav dropdown keyboard accessibility
+
+  if (!isDesktop.matches) {
+    navSections.classList.add('nav-mobile');
+  } else {
+    navSections.classList.remove('nav-mobile');
+  }
+
   const navDrops = navSections.querySelectorAll('.nav-drop');
   if (isDesktop.matches) {
     navDrops.forEach((drop) => {
@@ -91,11 +98,8 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
     });
   }
 
-  // enable menu collapse on escape keypress
   if (!expanded || isDesktop.matches) {
-    // collapse menu on escape press
     window.addEventListener('keydown', closeOnEscape);
-    // collapse menu on focus lost
     nav.addEventListener('focusout', closeOnFocusLost);
   } else {
     window.removeEventListener('keydown', closeOnEscape);
@@ -103,17 +107,27 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   }
 }
 
+// === CART BADGE UTILITY FUNCTIONS MOVED OUT ===
+function getCartItems() {
+  return JSON.parse(localStorage.getItem('cartItems')) || [];
+}
+
+function updateCartBadge(badge) {
+  const cartItems = getCartItems();
+  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  badge.textContent = totalItems;
+  badge.style.display = totalItems > 0 ? 'block' : 'none';
+}
+
 /**
  * loads and decorates the header, mainly the nav
  * @param {Element} block The header block element
  */
 export default async function decorate(block) {
-  // load nav as fragment
   const navMeta = getMetadata('nav');
   const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
   const fragment = await loadFragment(navPath);
 
-  // decorate nav DOM
   block.textContent = '';
   const nav = document.createElement('nav');
   nav.id = 'nav';
@@ -146,7 +160,6 @@ export default async function decorate(block) {
     });
   }
 
-  // hamburger for mobile
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
   hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
@@ -155,7 +168,6 @@ export default async function decorate(block) {
   hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
   nav.prepend(hamburger);
   nav.setAttribute('aria-expanded', 'false');
-  // prevent mobile nav behavior on window resize
   toggleMenu(nav, navSections, isDesktop.matches);
   isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
 
@@ -163,4 +175,23 @@ export default async function decorate(block) {
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
+
+  // === CART BADGE LOGIC START ===
+  const navCartLi = nav.querySelector('.nav-sections .default-content-wrapper > ul > li a[title="🛒"]')?.parentElement;
+  if (navCartLi) {
+    let badge = navCartLi.querySelector('.cart-badge');
+    if (!badge) {
+      badge = document.createElement('span');
+      badge.className = 'cart-badge';
+      navCartLi.appendChild(badge);
+    }
+    const update = () => updateCartBadge(badge);
+    window.addEventListener('cartUpdated', update);
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'cartItems') update();
+    });
+    document.addEventListener('DOMContentLoaded', update);
+    update(); // initial call
+  }
+  // === CART BADGE LOGIC END ===
 }
