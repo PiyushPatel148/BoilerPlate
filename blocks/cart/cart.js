@@ -49,7 +49,7 @@ export default async function decorate(block) {
 
       // Price
       const price = document.createElement('div');
-      price.textContent = `₹${Number(item.price).toFixed(2)}`;
+      price.textContent = `₹${Number(item.price)}`;
       detailsDiv.appendChild(price);
 
       itemDiv.appendChild(detailsDiv);
