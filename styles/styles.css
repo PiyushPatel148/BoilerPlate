@@ -47,7 +47,7 @@
   --color-overlay: rgb(0 0 0 / 60%);
   --color-highlight: #fff7ed;
   --color-highlight-2: #ffedd5;
-  --color-card-hover: #f6ddb0;
+  --color-card-hover: #FFF5E1;
 
   /* FONTS */
   --font-family-body: roboto, roboto-fallback, sans-serif;
@@ -144,11 +144,16 @@
 body {
   display: none;
   margin: 0;
-  background-color: var(--background-color);
+
+  /* background-color: #F9F9F6; */
+
+  /* background-color: #F5EEE6; */
+   background-color: #FDF3EC;
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 body.appear {
@@ -183,12 +188,29 @@ h6 {
   scroll-margin: 40px;
 }
 
-h1 { font-size: var(--heading-font-size-xxl); }
-h2 { font-size: var(--heading-font-size-xl); }
-h3 { font-size: var(--heading-font-size-l); }
-h4 { font-size: var(--heading-font-size-m); }
-h5 { font-size: var(--heading-font-size-s); }
-h6 { font-size: var(--heading-font-size-xs); }
+h1 {
+  font-size: clamp(2rem, 5vw, var(--heading-font-size-xxl));
+}
+
+h2 {
+  font-size: clamp(1.75rem, 4.5vw, var(--heading-font-size-xl));
+}
+
+h3 {
+  font-size: clamp(1.5rem, 4vw, var(--heading-font-size-l));
+}
+
+h4 {
+  font-size: clamp(1.25rem, 3.5vw, var(--heading-font-size-m));
+}
+
+h5 {
+  font-size: clamp(1.125rem, 3vw, var(--heading-font-size-s));
+}
+
+h6 {
+  font-size: clamp(1rem, 2.5vw, var(--heading-font-size-xs));
+}
 
 p,
 dl,
@@ -326,4 +348,3 @@ main .section.highlight {
   margin: 0;
   padding: 40px 0;
 }
-
