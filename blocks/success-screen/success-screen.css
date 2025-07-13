@@ -1,5 +1,6 @@
 .success-screen-container {
-  display: none !important;
+  /* display: none !important; */
+  display: none;
   position: fixed;
   inset: 0; /* height of your navbar/header */
   width: 100vw;
@@ -72,8 +73,9 @@
 }
 
 body.success-modal-open {
-  overflow: hidden !important;
-  height: 100vh !important;
+  /* Instead of !important, use higher specificity and a modal class */
+  overflow: hidden;
+  height: 100vh;
 }
 
 @media (width <= 768px) {
