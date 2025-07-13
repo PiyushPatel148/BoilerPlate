@@ -1,12 +1,13 @@
 footer {
   background-color: var(--color-black);
   font-size: var(--font-size-xs);
+  overflow: hidden;
 }
 
 footer .footer > div {
-  margin: auto;
   max-width: 1200px;
-  padding: var(--space-xxl);
+ overflow: hidden;
+  
 }
 
 footer .footer p {
@@ -16,12 +17,6 @@ footer .footer p {
   display: flex;
   justify-content: center;
   margin-top : 20px;
-}
-
-@media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
-  }
 }
 
 .footer-heading,.footer-subitem{
@@ -52,6 +47,16 @@ footer .footer-list > li.footer-heading {
   list-style: none;
 }
 
+@media (width >= 900px) {
+  footer .footer > div {
+     padding: var(--space-xxxl) 0;
+  }
+}
 
+@media (width <= 480px) {
+  footer .footer > div {
+     padding: var(--space-l);
+  }
+}
 
 
