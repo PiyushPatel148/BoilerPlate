@@ -93,10 +93,12 @@
 }
 
 /* === Pizza Image === */
-.cards .cards-card-body .pizza-image {
-  width: 72px;
+.cards .cards-card-body picture > img {
+  width: 180px;
   object-fit: contain;
   position: relative;
+  bottom : 20px;
+  right : 15%;
   z-index: 0;
 }
 
