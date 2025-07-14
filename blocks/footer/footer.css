@@ -41,6 +41,12 @@ footer .footer p {
   font-size: 1.0rem;
 }
 
+.footer-sublist a {
+  color : white;
+  text-decoration: none;
+  cursor:pointer;
+}
+
 footer .footer-list > li.footer-heading {
   color: var(  --color-primary);/* orange */
   font-size: var(--font-size-m);
@@ -56,6 +62,19 @@ footer .footer-list > li.footer-heading {
 @media (width <= 480px) {
   footer .footer > div {
      padding: var(--space-l);
+  }
+
+  .footer-list{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  li.footer-heading{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
   }
 }
 
