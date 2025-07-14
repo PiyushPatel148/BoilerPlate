@@ -3,6 +3,76 @@ import { loadFragment } from '../fragment/fragment.js';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
+function waitForFormLoad(selector, callback) {
+  const interval = setInterval(() => {
+    const form = document.querySelector(selector);
+    if (form) {
+      clearInterval(interval);
+      callback(form);
+    }
+  }, 20);
+}
+
+function initModalForms() {
+  [
+    { selector: '.form.navform.block', triggerText: 'sign up' },
+    { selector: '.form.reservation.block', triggerText: 'reservation' },
+  ].forEach(({ selector, triggerText }) => {
+    waitForFormLoad(selector, (formBlock) => {
+      const modalOverlay = document.createElement('div');
+      modalOverlay.className = 'modal-overlay';
+
+      const modalContent = document.createElement('div');
+      modalContent.className = 'modal-content';
+
+      const closeBtn = document.createElement('button');
+      closeBtn.innerHTML = '&times;';
+      closeBtn.className = 'modal-close';
+
+      closeBtn.addEventListener('click', () => {
+        modalOverlay.style.display = 'none';
+        formBlock.style.display = 'none';
+        document.body.style.overflow = '';
+      });
+
+      formBlock.style.display = 'none';
+
+      const heading = formBlock.querySelector('h2');
+      if (heading) {
+        heading.remove();
+        modalContent.appendChild(heading);
+      }
+
+      modalContent.appendChild(closeBtn);
+      modalContent.appendChild(formBlock);
+      modalOverlay.appendChild(modalContent);
+      document.body.appendChild(modalOverlay);
+
+      //  Find the <li> matching nav item by text
+      const navItem = Array.from(document.querySelectorAll('nav ul li')).find(
+        (li) => li.textContent.trim().toLowerCase() === triggerText,
+      );
+
+      if (navItem) {
+        navItem.style.cursor = 'pointer';
+        navItem.addEventListener('click', (e) => {
+          e.preventDefault();
+          modalOverlay.style.display = 'flex';
+          formBlock.style.display = 'block';
+          document.body.style.overflow = 'hidden';
+        });
+      }
+
+      modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+          modalOverlay.style.display = 'none';
+          formBlock.style.display = 'none';
+          document.body.style.overflow = '';
+        }
+      });
+    });
+  });
+}
 
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
@@ -193,5 +263,5 @@ export default async function decorate(block) {
     document.addEventListener('DOMContentLoaded', update);
     update(); // initial call
   }
-  // === CART BADGE LOGIC END ===
+  initModalForms();
 }

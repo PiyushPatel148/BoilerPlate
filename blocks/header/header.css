@@ -83,6 +83,11 @@ header nav[aria-expanded='true'] {
   }
 }
 
+/* tools */
+header nav .nav-tools {
+  display: none;
+}
+
 header nav p {
   margin: 0;
   line-height: 1;
@@ -97,6 +102,11 @@ header nav a:any-link {
 header nav a:any-link:hover {
   background-color: var(--link-hover-color);
   border-radius: var(--radius-s);
+}
+
+.section.nav-brand a:hover{
+  background-color: black;
+  cursor: pointer;
 }
 
 /* hamburger */
@@ -347,7 +357,9 @@ header nav .nav-sections ul>li>ul {
   }
 }
 
-/* tools */
-header nav .nav-tools {
-  display: none;
+@media (width <= 480px) {
+  .cart-badge{
+    top:71%;
+    right : 61%;
+  }
 }
