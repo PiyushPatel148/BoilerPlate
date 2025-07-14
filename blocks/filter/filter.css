@@ -9,6 +9,10 @@
   /* space between buttons */
 }
 
+.filter-buttons-container h1 , h2{
+  text-align: center;
+}
+
 .filter-buttons>div>p {
   background-color: var(--color-white);
   padding: var(--space-m) var(--space-l);
@@ -28,13 +32,6 @@
 .filter-buttons button.active {
   background-color: var(--color-secondary);
   color: var(--color-white);
-}
-
-.filter-buttons button:hover,
-.filter-buttons>div>p:hover {
-  background-color: var(--color-card-hover);
-  color: var(--color-light);
-  transition: background-color 0.3s, color 0.3s;
 }
 
 @media (width <= 768px) {
