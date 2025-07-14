@@ -98,7 +98,7 @@
   object-fit: contain;
   position: relative;
   bottom : 20px;
-  right : 15%;
+  right : 2%;
   z-index: 0;
 }
 
@@ -109,9 +109,34 @@
   }
 }
 
-@media (width <= 500px) {
+@media (width <= 400px) {
   .cards > ul > li {
     flex: 1 1 100%;
+  }
+}
+
+@media (width <= 480px) {
+  .cards > ul {
+    gap: var(--space-l);
+    padding: 0 4px;
+   
+  }
+
+  .cards > ul > li {
+    flex: 1 1 100%;
+    min-width: 0;
+    padding: 8px 4px;
+    max-width: 90%;
+  }
+
+  .cards .cards-card-body > p {
+    max-width : 230px;
+  }
+
+  .cards .cards-card-body picture > img {
+    width: 120px;
+    bottom: 15px;
+    right: 0;
   }
 }
 
