@@ -1,94 +1,106 @@
-.hero-image-0{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -10;
+.hero-image-0 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -10;
 }
 
 .hero-image-0 img {
-    height: 100vh;
-    width: 100%;
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
 }
 
-.hero-content > div{
-    display : flex;
-    flex-direction: column;
-    justify-content: center;
-    gap : var(--space-xxs);
-    position : absolute;
-    top : 25%;
+.hero-image-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -11;
 }
 
-main > .section > div.test-wrapper{
-     height: 100vh;
-    width: 100%;
-    padding : 0;
+.hero-image-1 img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
-.test.block{
-  padding : 0;
+.hero-content > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-xxs);
+  position: absolute;
+  top: 25%;
 }
 
- .test h2{
-    color: var(--heading-color);
-    font-size: clamp(20px, 4vw, 32px);
+main > .section > div.hero-section-wrapper {
+  height: 100vh;
+  width: 100%;
+  padding: 0;
 }
 
-.test  h1{
-    font-size: clamp(32px, 8vw, 70px);
-    max-width: 700px;
-    margin: 0;
-    line-height: 1.1;
-    color: #F1D1C1;
-
-    /* width: 100%; */
+.hero-section.block {
+  padding: 0;
 }
 
-.test  p{
-    font-size: clamp(14px, 2.5vw, 18px);
-    
-    /* width: 100%; */
+.hero-section h2 {
+  color: var(--heading-color);
+  font-size: clamp(20px, 4vw, 32px);
+}
 
-    max-width: 500px;
-    line-height: 1.4;
-    color: #F1D1C1;
+.hero-section h1 {
+  font-size: clamp(32px, 8vw, 70px);
+  max-width: 700px;
+  margin: 0;
+  line-height: 1.1;
+  color: #F1D1C1;
+}
+
+.hero-section p {
+  font-size: clamp(14px, 2.5vw, 18px);
+  max-width: 500px;
+  line-height: 1.4;
+  color: #F1D1C1;
 }
 
 @media (width <= 890px) {
-  .hero-content > div{
-    background: rgb(0 0 0 / 45%); /* darkened overlay */
-  border: 1px solid rgb(255 255 255 / 20%);
-  padding: 32px;
-  margin-right: 32px;
-  border-radius: 16px;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 8px 24px rgb(0 0 0 / 20%);
-  position: absolute;
-  top: 30%;
-  left: 6%;
-  max-width: 520px;
-  color: #fff; /* bright text */
+  .hero-content > div {
+    background: rgb(0 0 0 / 45%);
+    border: 1px solid rgb(255 255 255 / 20%);
+    padding: 32px;
+    margin-right: 32px;
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 24px rgb(0 0 0 / 20%);
+    position: absolute;
+    top: 30%;
+    left: 6%;
+    max-width: 520px;
+    color: #fff;
   }
 
-  .test-wrapper,
+  .hero-section-wrapper,
   .hero-image-0 img {
     width: 100%;
     max-width: 100%;
-    height : 100vh;
+    height: 100vh;
     overflow-x: hidden;
   }
 }
 
 @media (width <= 768px) {
-  .test {
+  .hero-section {
     /* padding: var(--space-m); */
     font-size: var(--font-size-m);
   }
 
-  .test-wrapper,
+  .hero-section-wrapper,
   .hero-image-0 img {
     width: 100%;
     max-width: 100%;
@@ -97,17 +109,30 @@ main > .section > div.test-wrapper{
 }
 
 @media (width <= 480px) {
-  .test {
-    padding: var(--space-s);
-    font-size: var(--font-size-s);
+  main > .section > div.hero-section-wrapper {
+    height: 70vh; /* Reduce overall wrapper height */
   }
 
-  .test-wrapper,
-  .hero-image-0 img {
+  .hero-section.block {
+    height: 70vh; /* Optional: constrain block too */
+  }
+
+  .hero-image-1 {
+    height: 75vh;
+  }
+
+  .hero-image-1 img {
+    height: 75vh;
     width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
+    object-fit: cover;
+  }
+
+  /* Hide .hero-image-0 */
+  .hero-image-0 {
+    display: none !important;
+  }
+
+  .hero-content > div {
+    top: 25%;
   }
 }
-
-
