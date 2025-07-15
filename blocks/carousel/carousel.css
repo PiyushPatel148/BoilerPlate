@@ -41,7 +41,9 @@
   
 
   border: 2px solid #ffe0b2;
-  border-left: 8px solid #ff9800;
+
+  /* border-left: 8px solid #ff9800; */
+  border-top: 8px solid #ffe0b2;
 }
 
 .carousel .carousel-slide .carousel-slide-content {
