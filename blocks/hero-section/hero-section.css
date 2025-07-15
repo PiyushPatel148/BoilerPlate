@@ -69,6 +69,12 @@ main > .section > div.hero-section-wrapper {
   color: #F1D1C1;
 }
 
+@media (width <=1200px){
+  .hero-content > div{
+    padding-left : 30px;
+  }
+}
+
 @media (width <= 890px) {
   .hero-content > div {
     background: rgb(0 0 0 / 45%);
@@ -110,11 +116,11 @@ main > .section > div.hero-section-wrapper {
 
 @media (width <= 480px) {
   main > .section > div.hero-section-wrapper {
-    height: 70vh; /* Reduce overall wrapper height */
+    height: 75vh; /* Reduce overall wrapper height */
   }
 
   .hero-section.block {
-    height: 70vh; /* Optional: constrain block too */
+    height: 75vh; 
   }
 
   .hero-image-1 {
@@ -129,10 +135,28 @@ main > .section > div.hero-section-wrapper {
 
   /* Hide .hero-image-0 */
   .hero-image-0 {
-    display: none !important;
+    display: none ;
   }
 
   .hero-content > div {
     top: 25%;
+  }
+}
+
+@media (width <= 360px) {
+  main > .section > div.hero-section-wrapper {
+    height: 90vh; /* Reduce overall wrapper height */
+  }
+
+  .hero-section.block {
+    height: 90vh; 
+  }
+
+  .hero-image-1 {
+    height: 90vh;
+  }
+
+  .hero-image-1 img {
+    height: 90vh;
   }
 }
