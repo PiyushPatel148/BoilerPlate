@@ -179,7 +179,7 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
 .nav-brand>.default-content-wrapper>ul img {
   width: 50px;
   text-align: center;
-  height: 48px;
+  height: auto;
 }
 
 header nav .nav-sections ul>li {
