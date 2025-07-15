@@ -22,6 +22,7 @@
   --color-accent: #ff9800;
   --color-accent-dark: #b85c00;
   --color-heading: #9a3412;
+
   --color-warning: #ffb300;
   --color-border: #dadada;
   --color-shadow: rgb(0 0 0 / 10%);
@@ -126,7 +127,7 @@
 body {
   display: none;
   margin: 0;
-
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   /* background-color: #F9F9F6; */
 
   /* background-color: #F5EEE6; */
@@ -192,10 +193,6 @@ h5 {
 
 h6 {
   font-size: clamp(1rem, 2.5vw, var(--heading-font-size-xs));
-}
-
-p {
-  font-size: clamp(0.95rem, 2vw, 1.125rem);
 }
 
 p,
