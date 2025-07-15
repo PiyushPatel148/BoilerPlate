@@ -363,3 +363,53 @@ header nav .nav-sections ul>li>ul {
     right : 61%;
   }
 }
+
+/* Cart icon in navbar */
+header .nav-cart {
+  display: none;
+}
+
+@media (width <= 899px) {
+  header .nav-cart {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    padding: 0;
+    z-index: 101;
+  }
+
+  header .nav-cart a[title="🛒"] {
+    font-size: 1.5rem;
+    color: var(--color-black);
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none;
+    background: none;
+    width: 32px;
+    height: 32px;
+  }
+
+  header .nav-cart .cart-badge {
+    position: absolute;
+    top: -6px;
+    right: -3px;
+    background: var(--color-white);
+    color: var(--color-black);
+    border-radius: var(--radius-round);
+    padding: 2px 4px;
+    font-size: 10px;
+    font-weight: bold;
+    z-index: 10;
+    display: inline-block;
+    text-align: center;
+    line-height: 1.2;
+    min-width: 18px;
+  }
+}

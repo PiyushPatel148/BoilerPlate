@@ -121,11 +121,6 @@ function focusNavSection() {
   document.activeElement.addEventListener('keydown', openOnKeydown);
 }
 
-/**
- * Toggles all nav sections
- * @param {Element} sections The container element
- * @param {Boolean} expanded Whether the element should be expanded or collapsed
- */
 function toggleAllNavSections(sections, expanded = false) {
   sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
     section.setAttribute('aria-expanded', expanded);
@@ -264,4 +259,39 @@ export default async function decorate(block) {
     update(); // initial call
   }
   initModalForms();
+
+  // === CART IN NAVBAR ===
+  setTimeout(() => {
+    const navCard = document.querySelector('.header .nav-wrapper nav');
+    if (!navCard) return;
+    // Find the cart item in the nav menu (mobile/desktop)
+    const cartMenuItem = nav.querySelector('.nav-sections ul li a[title="🛒"]')?.parentElement;
+    if (cartMenuItem) {
+      // Clone the cart icon + badge
+      const cartClone = cartMenuItem.cloneNode(true);
+      cartClone.classList.add('nav-cart');
+      // Remove aria attributes for the navbar version
+      cartClone.removeAttribute('aria-expanded');
+      // Insert the cart icon into the navbar (after brand)
+      const navbrand = nav.querySelector('.nav-brand');
+      if (navbrand) {
+        navBrand.parentNode.insertBefore(cartClone, navbrand.nextSibling);
+      }
+      // Make sure clicking the navbar cart navigates to cart page
+      const cartLink = cartClone.querySelector('a[title="🛒"]');
+      if (cartLink) {
+        cartLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          window.location.href = '/cart';
+        });
+      }
+      // Keep badge updated
+      const badge = cartClone.querySelector('.cart-badge');
+      if (badge) {
+        updateCartBadge(badge);
+        window.addEventListener('storage', () => updateCartBadge(badge));
+        document.addEventListener('cart-updated', () => updateCartBadge(badge));
+      }
+    }
+  }, 500);
 }
